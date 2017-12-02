@@ -1,0 +1,6 @@
+package com.callcenter.service;
+
+public interface CallHandeler {
+
+	public int callAttended();
+}

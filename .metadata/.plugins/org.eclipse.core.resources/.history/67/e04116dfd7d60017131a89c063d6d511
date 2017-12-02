@@ -1,0 +1,8 @@
+package com.callcenter.service;
+
+import com.callcenter.model.JuniorExecutive;
+
+public interface CallHandeler {
+
+	public JuniorExecutive[] callAttended(String[] str,String type);
+}

@@ -1,0 +1,61 @@
+package com.callcenter.impl;
+
+import com.callcenter.model.JuniorExecutive;
+import com.callcenter.service.CallHandeler;
+
+public class JeCallHandlerImpl implements CallHandeler {
+
+	@Override
+	public JuniorExecutive[] callAttended(String[] rp, String type) {
+		// TODO Auto-generated method stub
+
+		int thrshold = 0;
+
+		switch (type) {
+		case "je":
+			thrshold = 7;
+		case "se":
+			thrshold = 10;
+		case "mngr":
+			thrshold = 15;
+		default:
+
+		}
+
+		JuniorExecutive[] jeAr = new JuniorExecutive[rp.length];
+
+		for (int i = 0; i < rp.length; i++) {
+			JuniorExecutive jnr = doCalculaion(rp[i]);
+			jnr.setId("je" + (i + 1));
+			jeAr[i] = jnr;
+		}
+		return jeAr;
+	}
+
+	public JuniorExecutive doCalculaion(String strIp) {
+		int totalMin = 0;
+		int totalResolve = 0;
+		int totalExs = 0;
+		JuniorExecutive jnr = new JuniorExecutive();
+
+		String[] arr = strIp.split(",");
+		// [] jeAr = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			int temp = Integer.parseInt(arr[i]);
+			totalMin += temp;
+			if (temp > 7) {
+				totalExs++;
+			} else {
+				totalResolve++;
+			}
+		}
+
+		jnr.setTimeTaken(totalMin);
+		jnr.setCallsAttended(arr.length);
+		jnr.setEscalated(totalExs);
+		jnr.setResolved(totalResolve);
+
+		return jnr;
+	}
+
+}

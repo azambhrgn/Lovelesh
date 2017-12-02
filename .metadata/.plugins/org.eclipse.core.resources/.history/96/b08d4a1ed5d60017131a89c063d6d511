@@ -1,0 +1,30 @@
+package com.callcenter.controller;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.callcenter.impl.JeCallHandlerImpl;
+import com.callcenter.model.JuniorExecutive;
+import com.callcenter.model.RequestParam;
+
+@RestController
+public class DemoController {
+
+	@GetMapping("/hello")
+	public String hello() {
+		return "Hello World!";
+	}
+	
+	@RequestMapping(method=RequestMethod.POST, value="/callcenter")
+	public RequestParam processInformation(@RequestBody RequestParam reqParam) {
+		System.out.println(reqParam.toString());
+		JeCallHandlerImpl impl = new JeCallHandlerImpl();
+		
+		JuniorExecutive[] jeop = impl.callAttended(reqParam.getJe());
+		 
+		return reqParam;
+	}
+}

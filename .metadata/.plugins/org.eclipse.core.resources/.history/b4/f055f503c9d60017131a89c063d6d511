@@ -1,0 +1,5 @@
+package com.callcenter.impl;
+
+public class CallHandlerImpl implements CallHandeler {
+
+}

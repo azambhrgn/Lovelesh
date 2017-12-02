@@ -1,0 +1,11 @@
+package com.callcenter.model;
+
+import java.util.List;
+
+public class RequestParam {
+
+	private int numberOfCalls;
+	private List<List<String []>> callList;
+	
+	
+}

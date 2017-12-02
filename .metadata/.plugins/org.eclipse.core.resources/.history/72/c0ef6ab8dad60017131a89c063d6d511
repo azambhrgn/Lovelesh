@@ -1,0 +1,68 @@
+package com.callcenter.impl;
+
+import com.callcenter.model.Employee;
+import com.callcenter.model.JuniorExecutive;
+import com.callcenter.model.Manager;
+import com.callcenter.model.SeniorExecutive;
+import com.callcenter.service.CallHandeler;
+
+
+public class JeCallHandlerImpl implements CallHandeler {
+
+	@Override
+	public Employee[] callAttended(String[] rp, String type) {
+		// TODO Auto-generated method stub
+		Employee[] empAr = new JuniorExecutive[rp.length];
+		
+		for (int i = 0; i < rp.length; i++) {
+			Employee emp = doCalculaion(rp[i], type);
+			emp.setId(type + (i + 1));
+			empAr[i] = emp;
+		}
+		return empAr;
+	}
+
+	public Employee doCalculaion(String strIp, String type) {
+		int totalMin = 0;
+		int totalResolve = 0;
+		int totalExs = 0;
+		int thrshold = 0;
+		Employee emp = null;
+		switch (type) {
+		case "je":
+			thrshold = 7;
+			emp = new JuniorExecutive();
+			break;
+		case "se":
+			thrshold = 10;
+			emp = new SeniorExecutive();
+			break;
+		case "mngr":
+			thrshold = 15;
+			emp = new Manager();
+			break;
+		default:
+
+		}
+
+		String[] arr = strIp.split(",");
+		// [] jeAr = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			int temp = Integer.parseInt(arr[i]);
+			totalMin += temp;
+			if (temp > thrshold) {
+				totalExs++;
+			} else {
+				totalResolve++;
+			}
+		}
+
+		emp.setTimeTaken(totalMin);
+		emp.setCallsAttended(arr.length);
+		emp.setUnresolved(totalExs);
+		emp.setResolved(totalResolve);
+
+		return emp;
+	}
+
+}

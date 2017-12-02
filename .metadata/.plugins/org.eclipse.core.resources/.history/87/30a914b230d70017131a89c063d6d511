@@ -1,0 +1,6 @@
+package com.callcenter.controller;
+
+interface  ICallcenter {
+	
+
+}

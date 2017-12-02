@@ -1,0 +1,5 @@
+package com.callcenter.service;
+
+public interface CallHandeler {
+
+}

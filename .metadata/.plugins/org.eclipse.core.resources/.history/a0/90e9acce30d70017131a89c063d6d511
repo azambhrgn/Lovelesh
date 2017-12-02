@@ -1,0 +1,25 @@
+package com.callcenter.service.impl;
+
+import com.callcenter.model.Employee;
+import com.callcenter.model.JuniorExecutive;
+import com.callcenter.model.Manager;
+import com.callcenter.model.SeniorExecutive;
+import com.callcenter.service.CallHandelerFactory;
+import com.callcenter.util.CallCenterUtil;
+
+
+public class JeCallHandlerImpl extends CallHandelerFactory {
+
+	public Employee callAttended(String[] rp, String type) {
+		// TODO Auto-generated method stub
+		Employee[] empAr = new Employee[rp.length];
+		
+		for (int i = 0; i < rp.length; i++) {
+			Employee emp = CallCenterUtil.doCalculaion(rp[i], type);
+			emp.setId(type + (i + 1));
+			empAr[i] = emp;
+		}
+		return empAr;
+	}
+
+	}

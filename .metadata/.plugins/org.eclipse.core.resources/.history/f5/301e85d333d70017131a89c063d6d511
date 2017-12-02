@@ -1,0 +1,53 @@
+package com.callcenter.util;
+
+import com.callcenter.model.Employee;
+import com.callcenter.model.JuniorExecutive;
+import com.callcenter.model.Manager;
+import com.callcenter.model.SeniorExecutive;
+
+public class CallCenterUtil {
+
+	public static Employee doCalculaion(String strIp, int thrshold) {
+		int totalMin = 0;
+		int totalResolve = 0;
+		int totalExs = 0;
+		//int thrshold = 0;
+		Employee emp = null;
+		/*switch (type) {
+		case "je":
+			thrshold = 7;
+			emp = new JuniorExecutive();
+			break;
+		case "se":
+			thrshold = 10;
+			emp = new SeniorExecutive();
+			break;
+		case "mngr":
+			thrshold = 15;
+			emp = new Manager();
+			break;
+		default:
+
+		}*/
+
+		String[] arr = strIp.split(",");
+		for (int i = 0; i < arr.length; i++) {
+			int temp = Integer.parseInt(arr[i]);
+			totalMin += temp;
+			if (temp > thrshold) {
+				totalExs++;
+			} else {
+				totalResolve++;
+			}
+		}
+
+		emp.setTimeTaken(totalMin);
+		emp.setCallsAttended(arr.length);
+		emp.setUnresolved(totalExs);
+		emp.setResolved(totalResolve);
+
+		return emp;
+	}
+
+
+}

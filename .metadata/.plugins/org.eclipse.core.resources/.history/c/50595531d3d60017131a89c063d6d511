@@ -1,0 +1,34 @@
+package com.callcenter.impl;
+
+import com.callcenter.model.JuniorExecutive;
+import com.callcenter.service.CallHandeler;
+
+public class JeCallHandlerImpl implements CallHandeler {
+
+	@Override
+	public int callAttended(String[] rp) {
+		// TODO Auto-generated method stub
+		
+		
+		for(int i=0; i< rp.length; i++) {
+			 
+			
+			
+		}
+		return 0;
+	}
+	
+	public JuniorExecutive doCalculaion(String strIp) {
+		
+		String[] arr = strIp.split(",");
+		int[] jeAr = new int[arr.length];
+		for(int i=0;i<arr.length;i++) {
+			jeAr[i] = Integer.parseInt(arr[i]);
+			
+		}
+		
+		
+		return null;
+	}
+
+}

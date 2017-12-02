@@ -1,0 +1,13 @@
+package com.callcenter.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Response {
+
+	private int numberOfCalls;
+	private int totalResolved;
+	private int totalUnresolved;
+	private int totalTimeTaken;
+	private List<Employee> performance = new ArrayList<>();
+}

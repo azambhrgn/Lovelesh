@@ -1,0 +1,40 @@
+package com.callcenter.service.impl;
+
+import com.callcenter.controller.ICallcenter;
+import com.callcenter.model.Employee;
+import com.callcenter.model.JuniorExecutive;
+import com.callcenter.model.Manager;
+import com.callcenter.model.SeniorExecutive;
+import com.callcenter.service.CallHandelerFactory;
+import com.callcenter.util.CallCenterUtil;
+
+
+public class JeCallHandlerImpl implements ICallcenter {
+
+	/*public Employee[] calR(String[] rp, String type) {
+		// TODO Auto-generated method stub
+		Employee[] empAr = new Employee[rp.length];
+		
+		for (int i = 0; i < rp.length; i++) {
+			Employee emp = CallCenterUtil.doCalculaion(rp[i], 7);
+			emp.setId(type + (i + 1));
+			empAr[i] = emp;
+		}
+		return empAr;
+	}*/
+
+	@Override
+	public Employee[] getCallResp(String[] rp) {
+		// TODO Auto-generated method stub
+		Employee[] empAr = new Employee[rp.length];
+		System.out.println("Array len"+rp);
+		
+		for (int i = 0; i < rp.length; i++) {
+			Employee emp = CallCenterUtil.doCalculaion(rp[i], 7);
+			//emp.setId(type + (i + 1));
+			empAr[i] = emp;
+		}
+		return empAr;
+	}
+
+	}

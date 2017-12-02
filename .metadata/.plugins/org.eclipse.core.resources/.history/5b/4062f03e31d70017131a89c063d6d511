@@ -1,0 +1,23 @@
+package com.callcenter.service;
+
+import com.callcenter.model.Employee;
+import com.callcenter.model.JuniorExecutive;
+import com.callcenter.service.impl.JeCallHandlerImpl;
+
+public abstract class CallHandelerFactory {
+
+	public static Employee callAttended(String[] str,String type) {
+		
+		if("je".equals(type)) {
+			return new JuniorExecutive();
+		}
+		else if("se".equals(type)) {
+			return new JuniorExecutive();
+		}
+		else if("mngr".equals(type)) {
+			return new JuniorExecutive();
+		}
+		else		
+		return null;
+	}
+}

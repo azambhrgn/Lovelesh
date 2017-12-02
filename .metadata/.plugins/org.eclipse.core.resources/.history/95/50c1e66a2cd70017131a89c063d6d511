@@ -1,0 +1,15 @@
+package com.callcenter.service;
+
+import com.callcenter.model.Employee;
+import com.callcenter.model.JuniorExecutive;
+import com.callcenter.service.impl.JeCallHandlerImpl;
+
+public abstract class CallHandeler {
+
+	public Employee callAttended(String[] str,String type) {
+		
+		if("je".equals(type)) {
+			return new JeCallHandlerImpl();
+		}
+	}
+}

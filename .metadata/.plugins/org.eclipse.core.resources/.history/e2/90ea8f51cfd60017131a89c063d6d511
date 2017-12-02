@@ -1,0 +1,35 @@
+package com.callcenter.model;
+
+import java.util.List;
+
+public class RequestParam {
+
+	private int numberOfCalls;
+	private List<List<int []>> callList;
+	
+	public RequestParam() {}
+	
+	public RequestParam(int numberOfCalls, List<List<int[]>> callList) {
+		super();
+		this.numberOfCalls = numberOfCalls;
+		this.callList = callList;
+	}
+
+	public int getNumberOfCalls() {
+		return numberOfCalls;
+	}
+	public void setNumberOfCalls(int numberOfCalls) {
+		this.numberOfCalls = numberOfCalls;
+	}
+	public List<List<int[]>> getCallList() {
+		return callList;
+	}
+	public void setCallList(List<List<int[]>> callList) {
+		this.callList = callList;
+	}
+	
+	@Override
+	public String toString() {
+		return "RequestParam [numberOfCalls=" + numberOfCalls + ", callList=" + callList + "]";
+	}
+}

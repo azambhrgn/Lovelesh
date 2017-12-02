@@ -1,0 +1,14 @@
+package com.callcenter.impl;
+
+import com.callcenter.service.CallHandeler;
+
+public class JeCallHandlerImpl implements CallHandeler {
+
+	@Override
+	public int callAttended(String[] rp) {
+		// TODO Auto-generated method stub
+		
+		return 0;
+	}
+
+}
